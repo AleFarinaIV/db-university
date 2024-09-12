@@ -38,3 +38,9 @@
 
     SELECT COUNT(*) as 'departments_nums'
     FROM `departments`;
+
+8.
+
+    SELECT COUNT(*) as 'teachers_nums'
+    FROM `teachers`
+    WHERE `phone` is NULL;
