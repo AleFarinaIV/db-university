@@ -67,10 +67,11 @@
 
 6.
 
-    SELECT DISTINCT `teachers`.`name` AS `teachers_name`, `teachers`.`surname` AS `teachers_surname`, `departments`.`name` AS `department_name`
+    SELECT `teachers`.`name` AS `teachers_name`, `teachers`.`surname` AS `teachers_surname`, `departments`.`name` AS `department_name`
     FROM `departments`
     JOIN `degrees` ON `degrees`.`department_id` = `departments`.`id`
     JOIN `courses` ON `courses`.`degree_id` = `degrees`.`id`
     JOIN `course_teacher` ON `course_teacher`.`course_id` = `courses`.`id`
     JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
-    WHERE `departments`.`id` = 5;
+    WHERE `departments`.`id` = 5
+    GROUP BY `teachers`.`name`, `teachers`.`surname`, `departments`.`name`;
