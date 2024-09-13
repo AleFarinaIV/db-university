@@ -40,3 +40,11 @@
     FROM `departments`
     JOIN `degrees` ON `degrees`.`department_id` = `departments`.`id`
     WHERE `degrees`.`name` LIKE '%Magistrale%' AND `departments`.`name` LIKE '%Neuroscienze%';
+
+3.
+
+    SELECT `courses`.`name` AS `courses_name`, `teachers`.`name` AS `teacher_name`, `teachers`.`surname` AS `teacher_surname`
+    FROM `teachers`
+    JOIN `course_teacher` ON `course_teacher`.`teacher_id` = `teachers`.`id`
+    JOIN `courses` ON `courses`.`id` = `course_teacher`.`course_id`
+    WHERE `teachers`.`id` = 44;
